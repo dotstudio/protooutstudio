@@ -27,7 +27,8 @@
     "build": "frp build",
     "serve": "frp serve",
     "production": "frp build -p",
-    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0"
+    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0",
+    "deploy": "npm run production && cd ../../ && rm -rf docs/wp-content && rm -f docs/index.html && mv dev/front/public/pc/* docs/"
   },
   "repository": {
     "type": "git",
