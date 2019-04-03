@@ -13,6 +13,18 @@
 
 ## Usage
 
+* [NodeJS](https://nodejs.org/) 6.11.3
+
+publicにproductionファイルを生成
+```
+frp build -p  
+```
+
+frontplateによる監視、開発
+```
+frp serve -p
+```
+
 詳しくは[wiki](https://github.com/frontainer/frontplate-cli/wiki)を参照ください
 
 https://github.com/frontainer/frontplate-cli/wiki
