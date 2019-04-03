@@ -51,14 +51,16 @@ $root:'.c-member';
       position: absolute;
       top: 50%;
       left: 50%;
-      margin-top: -54px;
-      margin-left: -54px;
+      margin-top: -60px;
+      margin-left: -60px;
       width: 120px;
       height: 120px;
 
       @media screen and (max-width: $breakpointMedium) {
         width: 108px;
         height: 108px;
+        margin-top: -54px;
+        margin-left: -54px;
       }
     }
   }
