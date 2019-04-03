@@ -23,7 +23,7 @@ $root:'.p-header';
     height: 100%;
     width: 100%;
     background: #fff;
-    pointer-events: all;
+    pointer-events: none;
     opacity: 0;
     transition: .3s;
 
@@ -42,7 +42,7 @@ $root:'.p-header';
     height: 100%;
     width: 100%;
     background: $color-main;
-    pointer-events: all;
+    pointer-events: none;
     transform-origin: calc(100% - 28px) -28px;
     transform: translate3d(0, 0, 0) scale(0);
     transition: .3s .15s $ease-inout;
@@ -105,7 +105,8 @@ $root:'.p-header';
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding-bottom: 62px;
+      padding-bottom: 110px;
+      padding-top: 58px;
     }
 
     &__item {
@@ -142,7 +143,7 @@ $root:'.p-header';
         margin: auto;
         height: 1px;
         width: 15px;
-        background: $color-black;
+        background: $color-main;
         transition: transform .25s $ease-inout;
         transform-origin: right;
         transform: translate3d(0, 0, 0) scaleX(0);
@@ -196,32 +197,45 @@ $root:'.p-header';
         height: 24px;
         width: 24px;
 
-        &::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 100%;
-          border: solid 1px $color-gray;
-          border-radius: 2px;
-          opacity: 0;
-          transform: translate3d(0, 0, 0) scale(.5);
-          transition: .2s;
+        svg {
+          @include center1;
+
+          &:nth-child(1) {
+            z-index: 1;
+            transform: scale(1);
+            opacity: 1;
+            transform-origin: center 90%;
+            transition: transform 0s, opacity .3s;
+          }
+
+          &:nth-child(2) {
+            z-index: 0;
+            transform: scale(.3);
+            opacity: 0;
+            transform-origin: center 90%;
+            transition: transform 0.1s .25s $ease-out, opacity 0.1s .25s;
+
+            path {
+              fill: $color-main;
+            }
+          }
         }
 
-        @media screen and (min-width:769px) {
-          &:hover::before {
+        @media screen and (min-width: 769px) {
+          &:hover>svg:nth-child(1) {
+            transform: scale(2);
+            opacity: 0;
+            transition: transform .3s $ease-inout, opacity .2s .1s;
+          }
+
+          &:hover>svg:nth-child(2) {
+            transform: scale(1);
             opacity: 1;
-            transform: translate3d(0, 0, 0) scale(1);
-            transition: .3s $ease-out;
+            transition: transform .4s .1s $ease-out, opacity .2s .1s;
           }
         }
       }
 
-      svg {
-        @include center1;
-      }
     }
   }
 
@@ -229,7 +243,7 @@ $root:'.p-header';
     position: absolute;
     z-index: -1;
     right: 0;
-    bottom: 40px;
+    bottom: 15px;
     width: 268px;
     height: 68px;
     background: $color-main;
@@ -290,7 +304,7 @@ $root:'.p-header';
     right: 0;
     left: 0;
     margin: auto;
-    bottom: 0px;
+    bottom: 40px;
     width: 296px;
     height: 70px;
     font-size: 16px;
@@ -497,11 +511,13 @@ body.is-navOpen #{$root} {
   &::before {
     opacity: 1;
     transition: .3s .4s;
+    pointer-events: all;
   }
 
   &::after {
     transform: translate3d(0, 0, 0) scale(1);
     transition: transform .3s .1s $ease-inout;
+    pointer-events: all;
   }
 
   &__navi__item {

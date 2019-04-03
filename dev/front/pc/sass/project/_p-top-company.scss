@@ -45,7 +45,7 @@ $root:'.p-top-company';
 
       @for $i from 1 through 10 {
         &:nth-child(#{$i}) {
-          transition: .7s #{$i * 0.01 + 0.1}s $ease-out !important;
+          transition: .7s #{$i * 0.007 + 0.1}s $ease-out !important;
         }
       }
 
@@ -69,6 +69,7 @@ $root:'.p-top-company';
           text-align: center;
           padding-right: 6px;
           position: absolute;
+          letter-spacing: 2px;
           @include center2;
         }
       }

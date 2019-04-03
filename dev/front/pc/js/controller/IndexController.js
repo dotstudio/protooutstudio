@@ -27,6 +27,7 @@ class IndexController {
       this.$curriculumBtn = $('.p-top-curriculum__btn');
       this.$curriculumBody = $('.p-top-curriculum__body');
       this.$curriculumCover = $('.p-top-curriculum');
+      this.hm = new Hammer(this.$curriculumBody[0]);
       this.curriculumBodyWidth = this.$curriculumBody.innerWidth();
       this.curriculumCoverWidth = this.$curriculumCover.innerWidth();
 
@@ -44,6 +45,16 @@ class IndexController {
       this.$window.on('resize.index', this.onResize);
       this.$window.on('resize.index', debounce(this.onResizeEnd, 200));
       this.$curriculumBtn.on('click', this.onCurriculumControl);
+
+
+      this.hm.on("swipeleft", ()=>{
+        if(!this.curriculumDirection) return;
+        this.onCurriculumControl;
+      });
+      this.hm.on("swiperight", ()=>{
+        if(this.curriculumDirection) return;
+        this.onCurriculumControl;
+      });
 
       this.mvFlg = false;
 
@@ -132,9 +143,9 @@ class IndexController {
       this.curriculumDirection = true;
       this.$curriculumBtn.removeClass('is-left').addClass('is-right');
     }
-    TweenLite.to(this.$curriculumBody, 0.6, {
+    TweenLite.to(this.$curriculumBody, 0.5, {
       x: this.moveDistance,
-      ease: Power4.easeInOut,
+      ease: Power3.easeOut,
     });
     setTimeout(() => {
       this.curriculumFlag = false;

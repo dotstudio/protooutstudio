@@ -19,6 +19,7 @@ $root:'.p-top-work';
 
       >h2 {
         position: absolute;
+        width: 100%;
         @include text20px;
         font-weight: 400;
         letter-spacing: 2.3px;
@@ -239,6 +240,7 @@ $root:'.p-top-work';
 
   &__out {
     text-align: right;
+
 
     &__backItem {
       right: calc(-100px - 30vw);

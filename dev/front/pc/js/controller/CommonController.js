@@ -133,7 +133,9 @@ class CommonController {
       this.splitSpan = new SplitSpan();
       this.onResize();
       this.onResizeEnd();
-      lax.setup()
+      if (!window.__GLOBAL.UA === 'IE') {
+        lax.setup()
+      }
       this.update();
 
       resolve();
@@ -168,14 +170,14 @@ class CommonController {
     if (this.windowWidth <= 768) {
       this.onNavClose();
 
-    TweenMax.set(window, {
-      scrollTo: {
-        y: scroll,
-      },
-    });
-    return;
+      TweenMax.set(window, {
+        scrollTo: {
+          y: scroll,
+        },
+      });
+      return;
     }
-    TweenMax.to(window,1, {
+    TweenMax.to(window, 1, {
       scrollTo: {
         y: scroll,
         autoKill: false,
@@ -214,7 +216,9 @@ class CommonController {
     if (this.ticking || window.__GLOBAL.wheelFlg) return;
     this.ticking = true;
     this.scroll = this.$window.scrollTop();
-    lax.update(window.scrollY)
+    if (!window.__GLOBAL.UA === 'IE') {
+      lax.update(window.scrollY)
+    }
     requestAnimationFrame(this.scrollTicker);
   }
   _scrollTicker() {
@@ -229,11 +233,13 @@ class CommonController {
     this.isResize = false;
     this.windowHeight = this.$window.outerHeight();
     this.windowWidth = this.$window.innerWidth();
-
     this.aboutTop = this.$aboutArea.offset().top - 50;
     this.curriculumTop = this.$curriculumArea.offset().top - 50;
     this.memberTop = this.$memberArea.offset().top - 50;
     this.footerTop = this.$footer.offset().top;
+    setTimeout(() => {
+      // lax.populateElements()
+    }, 200);
   }
   _onClickLink(e) {
     e.preventDefault();
