@@ -9,7 +9,7 @@ $root:'.p-top-mv';
   align-items: center;
   padding-top: 34px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     height: 100vh !important;
   }
 
@@ -132,7 +132,7 @@ $root:'.p-top-mv';
         top: 0;
         height: 20px;
         width: 100%;
-        background: linear-gradient(#fff, transparent);
+        background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 
         @media screen and (max-width: 600px) {
           height: 10px;
@@ -147,7 +147,7 @@ $root:'.p-top-mv';
         bottom: 0;
         height: 20px;
         width: 100%;
-        background: linear-gradient(0deg, #fff, transparent);
+        background: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 
         @media screen and (max-width: 600px) {
           height: 10px;
@@ -396,12 +396,12 @@ body.is-loading-end #{$root} {
   &__backItem1 {
     transform: scale(4);
     opacity: 0;
-    transition: transform .6s .2s $ease-inout, opacity .3s .4s;
+    transition: transform .6s .5s $ease-inout, opacity .3s .7s;
   }
 
   &__backItem2 {
     transform: scale(4);
     opacity: 0;
-    transition: transform .6s $ease-inout, opacity .3s .2s;
+    transition: transform .6s .3s $ease-inout, opacity .3s .5s;
   }
 }

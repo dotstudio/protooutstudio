@@ -58,7 +58,6 @@ $root:'.p-header';
     top: 50px;
     width: 150px;
     height: 50px;
-    @include img;
     transition: .3s $ease-inout;
     transform-origin: left top;
     pointer-events: all;
@@ -80,6 +79,10 @@ $root:'.p-header';
       left: 5.3%;
     }
 
+    >img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__navi {

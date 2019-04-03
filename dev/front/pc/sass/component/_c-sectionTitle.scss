@@ -6,6 +6,7 @@ $root:'.c-sectionTitle';
   h2 {
     @include textTitle;
     margin-left: -4px;
+    white-space: nowrap;
 
     @media screen and (max-width: $breakpointLarge) {
       margin-left: -2px;
