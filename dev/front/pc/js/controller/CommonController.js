@@ -100,25 +100,25 @@ class CommonController {
 
     this.$toaboutBtn.on('click', (e) => {
       e.preventDefault();
-      if(this.windowWidth <= 768) this.onNavClose();
+      if (this.windowWidth <= 768) this.onNavClose();
       this.aboutTop = this.$aboutArea.offset().top - 50;
       this.scrollDown(this.aboutTop);
     });
     this.$tocurriculumBtn.on('click', (e) => {
       e.preventDefault();
-      if(this.windowWidth <= 768) this.onNavClose();
+      if (this.windowWidth <= 768) this.onNavClose();
       this.curriculumTop = this.$curriculumArea.offset().top - 50;
       this.scrollDown(this.curriculumTop);
     });
     this.$tomemberBtn.on('click', (e) => {
       e.preventDefault();
-      if(this.windowWidth <= 768) this.onNavClose();
+      if (this.windowWidth <= 768) this.onNavClose();
       this.memberTop = this.$memberArea.offset().top - 50;
       this.scrollDown(this.memberTop);
     });
     this.$tocontactBtn.on('click', (e) => {
       e.preventDefault();
-      if(this.windowWidth <= 768) this.onNavClose();
+      if (this.windowWidth <= 768) this.onNavClose();
       this.footerTop = this.$footer.offset().top - this.windowHeight;
       this.scrollDown(this.footerTop);
     });
@@ -141,8 +141,9 @@ class CommonController {
       this.splitSpan = new SplitSpan();
       this.onResize();
       this.onResizeEnd();
-      if (!window.__GLOBAL.UA === 'IE') {
-        lax.setup()
+      console.log(window.__GLOBAL.UA.browser.name);
+      if (window.__GLOBAL.UA.browser.name !== 'IE') {
+        lax.setup();
       }
       this.update();
 
@@ -222,7 +223,7 @@ class CommonController {
     if (this.ticking || window.__GLOBAL.wheelFlg) return;
     this.ticking = true;
     this.scroll = this.$window.scrollTop();
-    if (!window.__GLOBAL.UA === 'IE') {
+    if (window.__GLOBAL.UA.browser.name !== 'IE') {
       lax.update(window.scrollY)
     }
     requestAnimationFrame(this.scrollTicker);
@@ -239,9 +240,9 @@ class CommonController {
     this.isResize = false;
     this.windowHeight = this.$window.outerHeight();
     this.windowWidth = this.$window.innerWidth();
-    setTimeout(() => {
-      // lax.populateElements()
-    }, 200);
+    // setTimeout(() => {
+    // lax.populateElements()
+    // }, 200);
   }
   _onClickLink(e) {
     e.preventDefault();
