@@ -100,18 +100,26 @@ class CommonController {
 
     this.$toaboutBtn.on('click', (e) => {
       e.preventDefault();
+      if(this.windowWidth <= 768) this.onNavClose();
+      this.aboutTop = this.$aboutArea.offset().top - 50;
       this.scrollDown(this.aboutTop);
     });
     this.$tocurriculumBtn.on('click', (e) => {
       e.preventDefault();
+      if(this.windowWidth <= 768) this.onNavClose();
+      this.curriculumTop = this.$curriculumArea.offset().top - 50;
       this.scrollDown(this.curriculumTop);
     });
     this.$tomemberBtn.on('click', (e) => {
       e.preventDefault();
+      if(this.windowWidth <= 768) this.onNavClose();
+      this.memberTop = this.$memberArea.offset().top - 50;
       this.scrollDown(this.memberTop);
     });
     this.$tocontactBtn.on('click', (e) => {
       e.preventDefault();
+      if(this.windowWidth <= 768) this.onNavClose();
+      this.footerTop = this.$footer.offset().top - this.windowHeight;
       this.scrollDown(this.footerTop);
     });
 
@@ -168,13 +176,11 @@ class CommonController {
   }
   scrollDown(scroll) {
     if (this.windowWidth <= 768) {
-      this.onNavClose();
-
       TweenMax.set(window, {
         scrollTo: {
           y: scroll,
         },
-      });
+      })
       return;
     }
     TweenMax.to(window, 1, {
@@ -233,10 +239,6 @@ class CommonController {
     this.isResize = false;
     this.windowHeight = this.$window.outerHeight();
     this.windowWidth = this.$window.innerWidth();
-    this.aboutTop = this.$aboutArea.offset().top - 50;
-    this.curriculumTop = this.$curriculumArea.offset().top - 50;
-    this.memberTop = this.$memberArea.offset().top - 50;
-    this.footerTop = this.$footer.offset().top;
     setTimeout(() => {
       // lax.populateElements()
     }, 200);

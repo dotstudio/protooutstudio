@@ -47,13 +47,13 @@ class IndexController {
       this.$curriculumBtn.on('click', this.onCurriculumControl);
 
 
-      this.hm.on("swipeleft", ()=>{
-        if(!this.curriculumDirection) return;
-        this.onCurriculumControl;
+      this.hm.on("swipeleft", () => {
+        if (!this.curriculumDirection) return;
+        this.onCurriculumControl();
       });
-      this.hm.on("swiperight", ()=>{
-        if(this.curriculumDirection) return;
-        this.onCurriculumControl;
+      this.hm.on("swiperight", () => {
+        if (this.curriculumDirection) return;
+        this.onCurriculumControl();
       });
 
       this.mvFlg = false;
@@ -143,9 +143,9 @@ class IndexController {
       this.curriculumDirection = true;
       this.$curriculumBtn.removeClass('is-left').addClass('is-right');
     }
-    TweenLite.to(this.$curriculumBody, 0.5, {
+    TweenLite.to(this.$curriculumBody, 0.6, {
       x: this.moveDistance,
-      ease: Power3.easeOut,
+      ease: Power3.easeInOut,
     });
     setTimeout(() => {
       this.curriculumFlag = false;

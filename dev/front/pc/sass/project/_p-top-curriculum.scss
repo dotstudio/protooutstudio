@@ -300,6 +300,7 @@ $root:'.p-top-curriculum';
       font-size: 11px;
       letter-spacing: .7px;
       line-height: 17px;
+      display: none;
     }
 
     @media screen and (max-width:$breakpointSmall) {
@@ -393,6 +394,44 @@ $root:'.p-top-curriculum';
       @media screen and (max-width:$breakpointSmall) {
         font-size: 11px;
 
+      }
+    }
+  }
+
+  .subItem4 {
+    display: none;
+    position: absolute;
+    left: 86vw;
+    top: 5px;
+    display: flex;
+    white-space: nowrap;
+    letter-spacing: .7px;
+    line-height: 14px;
+    transform: translateX(-100%);
+
+    @media screen and (max-width: $breakpointMedium) {
+      display: visible;
+    }
+
+    @media screen and (max-width: $breakpointSmall) {
+      top: 6px;
+      font-size: 12px !important;
+      line-height: 12px;
+      left: 89.5vw;
+
+    }
+
+    >span {
+      display: block;
+      width: calc(21px + 2vw);
+      height: 16px;
+      border-radius: 10px;
+      background: #fff;
+      border: solid 1px $color-main;
+      margin-right: 1.3vw;
+
+      @media screen and (max-width: $breakpointSmall) {
+        height: 14px;
       }
     }
   }

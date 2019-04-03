@@ -394,13 +394,13 @@ $root:'.p-top-mv';
 
 body.is-loading-end #{$root} {
   &__backItem1 {
-    transform: scale(3);
+    transform: scale(4);
     opacity: 0;
     transition: transform .6s .2s $ease-inout, opacity .3s .4s;
   }
 
   &__backItem2 {
-    transform: scale(3);
+    transform: scale(4);
     opacity: 0;
     transition: transform .6s $ease-inout, opacity .3s .2s;
   }
