@@ -141,7 +141,7 @@ class CommonController {
       this.splitSpan = new SplitSpan();
       this.onResize();
       this.onResizeEnd();
-      console.log(window.__GLOBAL.UA.browser.name);
+
       if (window.__GLOBAL.UA.browser.name !== 'IE') {
         lax.setup();
       }

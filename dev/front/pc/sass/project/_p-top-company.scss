@@ -45,17 +45,21 @@ $root:'.p-top-company';
 
       @for $i from 1 through 10 {
         &:nth-child(#{$i}) {
-          transition: .7s #{$i * 0.007 + 0.1}s $ease-out !important;
+          // transition: .7s #{$i * 0.007 + 0.1}s $ease-out !important;
         }
       }
 
       >span {
         position: relative;
         display: block;
+        height: 0;
         padding-top: 100%;
         width: 100%;
         box-shadow: 10px 10px 20px 0 rgba(143, 133, 137, 0.3);
-        background: #fff;
+        background-color: #fff;
+        background-position: center center;
+        background-size: 80%;
+        background-repeat: no-repeat;
 
         @media screen and (max-width: $breakpointMedium) {
           padding-top: 92%;
@@ -72,6 +76,14 @@ $root:'.p-top-company';
           letter-spacing: 2px;
           @include center2;
         }
+      }
+
+      &.is-gray>span {
+        background-color: $color-gray;
+      }
+
+      &.is-black>span {
+        background-color: $color-black;
       }
     }
   }
