@@ -1,0 +1,149 @@
+$root :'.p-top-flow';
+
+#{$root} {
+  position: relative;
+  @include sectionWidth;
+  margin: 300px auto 0;
+  text-align: center;
+  @media screen and (max-width: $breakpointMedium) {
+    margin: 138px auto 0;
+  }
+  >h2{
+    @include text20px;
+    font-weight: 400;
+  }
+  &__flow{
+    text-align: left;
+    display: flex;
+    margin-top: 20px;
+    .left{
+      margin-right: 12px;
+      @media screen and (max-width: $breakpointMedium) {
+        margin-right: 20px;
+      }
+      >img{
+
+      }
+    }
+    .right{
+
+    }
+    .title{
+      @include text20px;
+      color: #b81c22;
+      letter-spacing: 0.18em;
+    }
+    .text{
+      @include text14px;
+      margin-top: 8px;
+      line-height: 28px;
+      letter-spacing: 0.09em;
+      @media screen and (max-width: $breakpointMedium) {
+        margin-top: 0px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+      }
+    }
+    .box{
+      &:nth-of-type(1){
+        margin-top: 14px;
+        @media screen and (max-width: $breakpointMedium) {
+          margin-top: 0px;
+          height: 102px;
+        }
+      }
+      &:nth-of-type(2){
+        margin-top: 35px;
+        @media screen and (max-width: $breakpointMedium) {
+          margin-top: 30px;
+          height: 105px;
+        }
+        .title{
+          letter-spacing: 0.12em;
+        }
+        .text{
+          letter-spacing: 0.165em;
+          @media screen and (max-width: $breakpointMedium) {
+            margin-top: 2px;
+            letter-spacing: 0.06em;
+          }
+        }
+      }
+      &:nth-of-type(3){
+        margin-top: 45px;
+        @media screen and (max-width: $breakpointMedium) {
+          margin-top: 30px;
+          height: 80px;
+        }
+        .title{
+          letter-spacing: 0.14em;
+        }
+        .text{
+          letter-spacing: 0.13em;
+          @media screen and (max-width: $breakpointMedium) {
+            margin-top: 2px;
+            letter-spacing: 0.01em;
+          }
+        }
+      }
+      &:nth-of-type(4){
+        margin-top: 47px;
+        @media screen and (max-width: $breakpointMedium) {
+          margin-top: 28px;
+        }
+        .text{
+          letter-spacing: 0.13em;
+          @media screen and (max-width: $breakpointMedium) {
+            margin-top: 2px;
+            letter-spacing: 0.1em;
+          }
+        }
+      }
+    }
+  }
+  &__image-pc{
+    width: 56px;
+    display: block;
+    @media screen and (max-width: $breakpointMedium) {
+      display: none;
+    }
+  }
+  &__image-sp{
+    width: 30px;
+    display: none;
+    @media screen and (max-width: $breakpointMedium) {
+      display: block;
+    }
+  }
+  &__bg {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    margin-left: 200px;
+    transform: translateX(-50%);
+    width: 519px;
+    height: 427px;
+    z-index: -1;
+    @include img;
+    @media screen and (max-width: 1340px) {
+      height: 300px;
+      width: auto;
+    }
+    @media screen and (max-width: 1160px) {
+      height: 200px;
+      width: auto;
+    }
+    @media screen and (max-width: $breakpointMedium) {
+      width: 77%;
+      height: auto;
+      position: relative;
+      bottom: auto;
+      left: 10px;
+      margin-left: 0px;
+      transform: translateX(0px);
+      margin-top: 24px;
+      margin-bottom: 140px;
+    }
+  }
+
+}

@@ -1,0 +1,68 @@
+$root:'.p-top-contact';
+
+#{$root} {
+  position: relative;
+  padding: 0 0 100px;
+  background-color: rgba(#ff8489,0.15);
+  text-align: center;
+  @media screen and (max-width:$breakpointMedium) {
+    padding: 35px 20px 75px;
+  }
+  &__inner{
+    @include sectionWidth;
+    margin: 0px auto 0;
+    @media screen and (max-width:$breakpointMedium) {
+      width: 100%;
+    }
+    >p{
+      @include text16px;
+      letter-spacing: 0.1em;
+      font-weight: 400;
+      @media screen and (max-width:$breakpointMedium) {
+        width: 100%;
+        @include text12px;
+        line-height: 26px;
+      }
+    }
+  }
+}
+
+.c-button{
+  display: block;
+  margin-top: 35px;
+  position: relative;
+  @media screen and (max-width:$breakpointMedium) {
+    margin-top: 20px;
+  }
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -5px;
+    right: 40px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+    transform: rotate(45deg);
+    @media screen and (max-width:$breakpointMedium) {
+      right: 30px;
+    }
+  }
+  &.is-full{
+    width: 100%;
+    height: 100%;
+    line-height: 100px;
+    background-color: #b81c22;
+    color: #FFFFFF;
+    @include text20px;
+    letter-spacing: 0.08em;
+    @media screen and (max-width:$breakpointMedium) {
+      height: 75px;
+      line-height: 75px;
+      @include text17px;
+      letter-spacing: 0.02em;
+    }
+  }
+}

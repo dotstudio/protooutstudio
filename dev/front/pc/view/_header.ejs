@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<%# common data %>
+<% include('../../const/_META') %>
+<% include('../../const/_PAGE') %>
+<% include('../../const/_MEMBER') %>
+<%
+//パスの設定
+rootPath = '/';
+//if(IS_PRODUCTION) rootPath = '/protoout-silent/pc/';
+assetPath = rootPath + 'wp-content/themes/protoout/assets/';
+imagePath = assetPath + 'images/';
+commonImagePath = imagePath + 'common/';
+%>
+<%
+//メタ情報の設定
+meta = {};
+meta.title = META[page].title || '';
+meta.description = META[page].description || '';
+meta.keywords = META[page].keywords || '';
+%>
+
+<head>
+  <meta charset="UTF-8">
+  <title>
+    ProtoOut Studio
+  </title>
+  <meta name="robots" content="noindex">
+  <meta name="googlebot" content="noindex">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="<%- meta.description %>">
+  <meta name="keywords" content="<%- meta.keywords %>">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="fb:admins" content="">
+  <meta property="og:title" content="<%- meta.title %>">
+  <meta property="og:description" content="<%- meta.description %>">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="<%- commonImagePath %>ogp/ogp.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:creator" content="">
+  <meta name="twitter:title" content="<%- meta.title %>">
+  <meta name="twitter:description" content="<%- meta.description %>">
+  <meta name="twitter:image" content="<%- commonImagePath %>ogp/ogp.png">
+  <link rel="stylesheet" href="<%- assetPath %>css/style.css">
+  <link rel="shortcut icon" href="<%- commonImagePath %>ogp/favicon.ico">
+  <link rel="apple-touch-icon" sizes="57x57" href="<%- commonImagePath %>ogp/apple-touch-icon-57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="<%- commonImagePath %>ogp/apple-touch-icon-60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="<%- commonImagePath %>ogp/apple-touch-icon-72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="<%- commonImagePath %>ogp/apple-touch-icon-76.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="<%- commonImagePath %>ogp/apple-touch-icon-96.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="<%- commonImagePath %>ogp/apple-touch-icon-114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="<%- commonImagePath %>ogp/apple-touch-icon-120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="<%- commonImagePath %>ogp/apple-touch-icon-144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="<%- commonImagePath %>ogp/apple-touch-icon-152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="<%- commonImagePath %>ogp/apple-touch-icon-180.png">
+  <link rel="apple-touch-icon" sizes="190x190" href="<%- commonImagePath %>ogp/apple-touch-icon-190.png">
+  <script>
+    document.documentElement.className = document.documentElement.className.replace("no-js", "js");
+
+  </script>
+</head>
+
+<body class="is-navClose is-loading">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <%#
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78080011-4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-78080011-4');
+    </script>
+  %>

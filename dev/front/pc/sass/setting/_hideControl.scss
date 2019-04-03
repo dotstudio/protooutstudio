@@ -1,0 +1,69 @@
+.showLarge {
+  display: none;
+
+  @media screen and (max-width: $breakpointLarge) {
+    display: block;
+  }
+}
+
+.showMedium {
+  display: none;
+
+  @media screen and (max-width: $breakpointMedium) {
+    display: block;
+  }
+}
+
+.show600 {
+  display: none;
+
+  @media screen and (max-width: 600px) {
+    display: block;
+  }
+}
+
+.show500 {
+  display: none;
+
+  @media screen and (max-width: 500px) {
+    display: block;
+  }
+}
+
+.showSmall {
+  display: none;
+
+  @media screen and (max-width: $breakpointSmall) {
+    display: block;
+  }
+}
+
+@media screen and (max-width:$breakpointLarge) {
+  .hideLarge {
+    display: none;
+  }
+}
+
+@media screen and (max-width:$breakpointMedium) {
+  .hideMedium {
+    display: none;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .hide600 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .hide500 {
+    display: none;
+  }
+}
+
+@media screen and (max-width:$breakpointSmall) {
+  .hideSmall {
+    display: none;
+  }
+}

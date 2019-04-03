@@ -1,0 +1,136 @@
+/*
+#styleguide
+基本スタイル
+
+```
+<p>特に何も指定しないときの状態</p>
+```
+*/
+
+html,
+body {
+  width: 100%;
+
+}
+
+html {
+  background-size: 21px 21px;
+  background-image: linear-gradient(90deg, #999 1px, transparent 1px);
+}
+
+body {
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: $font-smoothing;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: $font-smoothing;
+  text-rendering: $text-rendering;
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  color: $base-font-color;
+  width: 100%;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-position: 50% 0;
+    background-size: calc(24.47% - 1px) 1px;
+    background-image: linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+
+    @media screen and (max-width: 904px) {
+      background-position: calc(50% - 165px) 0;
+      background-size: 330px 1px;
+    }
+
+    @media screen and (max-width: $breakpointMedium) {
+      background-position: 12% 0;
+      background-size: 43% 1px;
+    }
+
+    @media screen and (max-width:$breakpointSmall) {
+      background-position: 9.5% 0;
+      background-size: 44.5% 1px;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: -30px;
+    height: calc(100% + 30px);
+    width: 100%;
+    background-size: 21px 21px;
+    background-image: linear-gradient(#fff 20px, transparent 1px);
+    // animation: test1 10s steps(5) infinite;
+  }
+}
+
+#js-container {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+::selection {
+  background-color: #222;
+  color: #fff;
+}
+
+::-moz-selection {
+  background-color: #222;
+  color: #fff;
+}
+
+a {
+  color: $color-text;
+}
+
+a,
+textarea,
+input,
+button {
+  outline: none;
+}
+
+#qm.qm-show {
+  z-index: 10000;
+  position: relative;
+}
+
+
+a,
+div,
+p,
+h1,
+h2,
+h3,
+span,
+small,
+svg,
+path {
+  // color: red !important;
+  // fill: red !important;
+}
+
+
+#__bs_notify__ {
+  opacity: .2 !important;
+  background: red !important;
+  pointer-events: none;
+}
+
+.lax {
+  transition: .4s $ease-out;
+}

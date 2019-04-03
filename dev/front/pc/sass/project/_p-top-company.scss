@@ -1,0 +1,77 @@
+$root:'.p-top-company';
+
+#{$root} {
+  position: relative;
+  @include sectionWidth;
+  margin: 160px auto 0;
+
+  @media screen and (max-width: $breakpointLarge) {
+    margin: 130px auto 0;
+  }
+
+  @media screen and (max-width:$breakpointMedium) {
+    margin: 97px auto 0;
+  }
+
+  &__top {
+    text-align: center;
+    @include text20px;
+    font-weight: 500;
+    line-height: 20px;
+    height: 20px;
+    padding-left: 3px;
+    letter-spacing: 2.2px;
+  }
+
+  &__body {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: $breakpointMedium) {
+      flex-wrap: wrap;
+    }
+
+    &__item {
+      width: 22%;
+      transform-origin: 80% 80%;
+
+      @media screen and (max-width: $breakpointMedium) {
+
+        width: calc(50% - 13px);
+        margin-bottom: 26px;
+      }
+
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          transition: .7s #{$i * 0.01 + 0.1}s $ease-out !important;
+        }
+      }
+
+      >span {
+        position: relative;
+        display: block;
+        padding-top: 100%;
+        width: 100%;
+        box-shadow: 10px 10px 20px 0 rgba(143, 133, 137, 0.3);
+        background: #fff;
+
+        @media screen and (max-width: $breakpointMedium) {
+          padding-top: 92%;
+        }
+
+        p {
+          font-family: $font-family-en;
+          font-weight: 700;
+          font-size: 15px;
+          width: 100%;
+          text-align: center;
+          padding-right: 6px;
+          position: absolute;
+          @include center2;
+        }
+      }
+    }
+  }
+}

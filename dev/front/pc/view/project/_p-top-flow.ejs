@@ -1,0 +1,36 @@
+<%
+var FLOW = [{
+  title: '無料説明会',
+  text: `スクールの内容をより詳細にご理解いただく機会になります。<br>
+是非ともお越しください。`
+},{
+  title: '申し込み',
+  text: `無料説明会にご参加いただいたあと、<br>
+もしくは本ページ下部のからのフォームからお申し込みいただけます。`
+},{
+  title: '入試',
+  text: `本スクールは、入学前に簡単な入試を実施いたします。`
+},{
+  title: '合否通知',
+  text: `入試から5日以内に合否の結果を通知いたします。<br>
+合わせて入学のご案内をお送りいたします。`
+}]
+%>
+<section class="p-top-flow">
+  <h2 class="p-top-flow__top">入学までの流れ</h2>
+  <div class="p-top-flow__flow">
+    <div class="left">
+      <img src="<%- imagePath %>index/flow-line-bg-pc.png" alt="" class="p-top-flow__image-pc">
+      <img src="<%- imagePath %>index/flow-line-bg-sp.png" alt="" class="p-top-flow__image-sp">
+    </div>
+    <div class="right">
+      <% FLOW.forEach(function(item,index){ %>
+        <div class="box">
+          <p class="title"><%- item.title %></p>
+          <p class="text"><%- item.text %></p>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+  <img class="p-top-flow__bg"  src="<%- imagePath %>index/flow-back.png" alt="">
+</section>

@@ -1,0 +1,57 @@
+.arrow {
+  position: absolute;
+  width: 14px;
+  height: 9px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 0px;
+    height: 100%;
+    width: 2px;
+    background: #fff;
+    transform-origin: bottom left;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 0px;
+    height: 100%;
+    width: 2px;
+    background: #fff;
+    transform-origin: bottom right;
+    transform: rotate(-45deg);
+  }
+
+  &.is-red::before,
+  &.is-red::after {
+    background: $color-main
+  }
+}
+
+.backItem {
+  position: absolute;
+  z-index: -1;
+  margin: auto;
+  width: 58vw;
+  height: 58vw;
+  min-width: 500px !important;
+  min-height: 500px !important;
+  @include img;
+  opacity: .28;
+
+  @media screen and (max-width: 600px) {
+    width: 80vw;
+    height: 80vw;
+    min-width: 340px !important;
+    min-height: 340px !important;
+  }
+}

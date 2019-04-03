@@ -1,0 +1,253 @@
+$root:'.p-top-work';
+
+#{$root} {
+  position: relative;
+  @include sectionWidth;
+  margin: 100px auto 0;
+
+  @media screen and (max-width: $breakpointMedium) {
+    margin: 91px auto 0;
+  }
+
+  &__proto,
+  &__out {
+    position: relative;
+
+    &__top {
+      transform: translateY(22%);
+      overflow: hidden;
+
+      >h2 {
+        position: absolute;
+        @include text20px;
+        font-weight: 400;
+        letter-spacing: 2.3px;
+        line-height: 20px;
+      }
+
+      >span {
+        display: inline-block;
+
+        svg {
+          margin-top: 58px;
+          opacity: .4;
+          position: relative;
+          // transform: translateY(32%);
+
+          @media screen and (max-width: $breakpointMedium) {
+            width: 100%;
+            height: auto;
+            max-width: 546px;
+          }
+        }
+      }
+    }
+
+    &__body {
+      position: relative;
+      width: 100%;
+      display: flex;
+      margin-top: -3px;
+      min-width: 768px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @media screen and (max-width: $breakpointMedium) {
+        left: 0;
+        min-width: 0;
+        transform: translateX(0);
+        display: block;
+      }
+
+      &__item {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        text-align: justify;
+
+        @media screen and (max-width: 550px) {
+          margin: auto;
+          max-width: 380px;
+        }
+
+        &:nth-child(1) {
+          @media screen and (max-width: $breakpointMedium) {
+            z-index: 2;
+            right: 5px;
+          }
+
+          @media screen and (max-width: 550px) {
+            right: -10px
+          }
+        }
+
+        &:nth-child(2) {
+          z-index: 2;
+          top: -10px;
+
+          @media screen and (max-width: $breakpointMedium) {
+            z-index: 1;
+            top: 0;
+            right: 10px;
+          }
+        }
+
+        &:nth-child(3) {
+          top: 10px;
+
+          @media screen and (max-width: $breakpointMedium) {
+            z-index: 0;
+            top: 0;
+            left: 5px;
+          }
+        }
+
+        &__inner {
+          position: relative;
+          display: inline-block;
+          padding: 4.4vw 4.4vw 3.8vw;
+
+          @media screen and (max-width: $breakpointMedium) {
+            min-height: 210px;
+            padding: 20px;
+            padding-left: 210px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+
+          @media screen and (max-width:600px) {
+            padding-left: 190px;
+          }
+
+          @media screen and (max-width:550px) {
+            padding: 30px;
+            display: block;
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: #fff;
+            opacity: .8;
+            box-shadow: 0 0 35px 0 rgba(143, 133, 137, 0.3);
+          }
+        }
+
+        &__img {
+          width: 100%;
+          padding-top: 100%;
+          @include img;
+
+          @media screen and (max-width: $breakpointMedium) {
+            position: absolute;
+            padding: 0;
+            height: 170px;
+            width: 170px;
+            left: 20px;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+          }
+
+          @media screen and (max-width:600px) {
+            height: 150px;
+            width: 150px
+          }
+
+          @media screen and (max-width:550px) {
+            left: auto;
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 100%;
+          }
+        }
+
+        h3 {
+          @include text20px;
+          font-weight: 400;
+          letter-spacing: 2px;
+          margin-left: -2px;
+          margin-top: 32px;
+          color: $color-main;
+
+          >br {
+            display: none;
+          }
+
+          @media screen and (max-width: $breakpointMedium) {
+            margin-left: 0;
+            margin-top: 0px;
+
+            >br {
+              display: block;
+            }
+          }
+
+          @media screen and (max-width:550px) {
+            margin-top: 24px;
+          }
+        }
+
+        p {
+          @include text14px;
+          letter-spacing: 1.3px;
+          margin-top: 16px;
+          line-height: 32px;
+
+          @media screen and (max-width: $breakpointMedium) {
+            margin-left: 0;
+            line-height: 28px;
+          }
+
+          @media screen and (max-width:550px) {
+            margin-top: 7px;
+            line-height: 24px;
+          }
+        }
+      }
+    }
+
+  }
+
+  &__proto {
+    margin-bottom: 158px;
+
+    @media screen and (max-width: $breakpointMedium) {
+      margin-bottom: 128px;
+    }
+
+    @media screen and (max-width: $breakpointSmall) {
+      margin-bottom: 98px;
+    }
+
+    &__backItem {
+      left: calc(-100px - 30vw);
+      top: -10vw;
+
+      @media screen and (max-width: $breakpointMedium) {
+        left: calc(-100px - 20vw);
+      }
+    }
+  }
+
+  &__out {
+    text-align: right;
+
+    &__backItem {
+      right: calc(-100px - 30vw);
+      top: -10vw;
+
+      @media screen and (max-width: $breakpointMedium) {
+        right: calc(-100px - 20vw);
+      }
+    }
+  }
+
+}

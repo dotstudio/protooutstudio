@@ -1,0 +1,27 @@
+///* font-face */
+// @font-face {
+//   font-family: 'Noto Sans Japanese';
+//   font-style: normal;
+//   font-weight: 400;
+//   src: url("../fonts/NotoSansMin/NotoSansCJKjp-min-Regular.woff") format("woff");
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: 'Novecento';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Novecento/Novecento-Normal.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Novecento';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Novecento/Novecento-Medium.woff") format("woff");
+  font-display: swap;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:500,400');

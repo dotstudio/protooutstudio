@@ -1,0 +1,48 @@
+$root:'.p-footer';
+
+#{$root} {
+  height: 60px;
+  line-height: 60px;
+  background-color: #3f3635;
+  text-align: right;
+  padding: 0 58px;
+  @media screen and (max-width:$breakpointMedium) {
+    text-align: center;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 35px;
+  }
+  >a{
+    color: #FFFFFF;
+    @include text12px;
+    letter-spacing: 0.08em;
+    margin-right: 15px;
+    position: relative;
+    padding-bottom: 4px;
+    @media screen and (max-width:$breakpointMedium) {
+      @include text10px;
+    }
+    &:before{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #6f6868;
+      @media screen and (max-width:$breakpointMedium) {
+        background-color: #dad9d8;
+        height: 1px;
+      }
+    }
+  }
+  >small{
+    @include text12px;
+    letter-spacing: 0.09em;
+    color: #FFFFFF;
+    @media screen and (max-width:$breakpointMedium) {
+      @include text10px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+$root:'.c-sectionTitle';
+
+#{$root} {
+  color: $color-main;
+
+  h2 {
+    @include textTitle;
+    margin-left: -4px;
+
+    @media screen and (max-width: $breakpointLarge) {
+      margin-left: -2px;
+    }
+  }
+
+  p {
+    @include textDesc;
+    margin-bottom: 48px;
+
+    @media screen and (max-width: $breakpointMedium) {
+      margin-top: 3px;
+      margin-bottom: 0;
+    }
+  }
+
+}

@@ -1,0 +1,63 @@
+$root: '.js-scroll-show';
+
+#{$root} {
+  position: relative;
+  overflow: hidden;
+  > span ,
+  > a ,
+  .js-scroll-show__inner{
+    display: block;
+    transform-origin: left top;
+    opacity: 0;
+  }
+  &.is-active {
+    > span ,
+    > a ,
+    .js-scroll-show__inner{
+      transition: opacity 0.5s cubic-bezier(0.79, 0.02, 0.57, 0.88);
+      opacity: 1;
+    }
+  }
+}
+
+//.is-load-start {
+//  #{$root} {
+//    &.is-close {
+//      &.is-active {
+//        .js-scroll-show__inner{
+//          transition: opacity 0.4s cubic-bezier(0.79, 0.02, 0.57, 0.88);
+//          opacity: 0;
+//        }
+//      }
+//    }
+//  }
+//}
+
+
+//.is-load-start {
+//  #{$root} {
+//    &.is-close {
+//      &.is-active {
+//        > span,
+//        > a,
+//        .js-scroll-show__inner {
+//          opacity: 0;
+//          transform: translateX(50px);
+//          transform-origin: left top;
+//          transition: opacity .5s cubic-bezier(0.79, 0.02, 0.57, 0.88),
+//          transform .5s cubic-bezier(0.79, 0.02, 0.57, 0.88);
+//        }
+//        @for $i from 1 through 400 {
+//          &:nth-child(#{$i}){
+//            > span,
+//            > a,
+//            .js-scroll-show__inner {
+//              transition: opacity .5s cubic-bezier(0.79, 0.02, 0.57, 0.88) $i*0.02s,
+//              transform .5s cubic-bezier(0.79, 0.02, 0.57, 0.88) $i*0.05s;
+//            }
+//          }
+//        }
+//      }
+//    }
+//  }
+//}

@@ -1,0 +1,78 @@
+@import 'setting/font-face';
+@import 'setting/font-family';
+@import 'setting/color';
+@import 'setting/easing';
+@import 'setting/delay';
+@import 'setting/_keyframe';
+
+
+//antialiased,subpixel-antialiased,none
+$font-smoothing: antialiased;
+
+//auto,optimizeSpeed,optimizeLegibility,geometricPrecision
+$text-rendering: auto;
+
+$base-font-family: $font-family-sans-serif;
+$base-font-size: 14px;
+$base-font-color: $color-text;
+$base-background-color: $color-base;
+$breakpointSmall: 380px;
+$breakpointMedium: 768px;
+$breakpointLarge: 1000px;
+$toggleTime: .5s;
+
+@import 'setting/_hideControl';
+
+@keyframes POINTER_EVENTS {
+  0% {
+    pointer-events: none;
+  }
+
+  99% {
+    pointer-events: none;
+  }
+
+  100% {
+    pointer-events: auto;
+  }
+}
+
+@mixin sectionWidth {
+  width: 73%;
+
+  @media screen and (max-width: 904px) {
+    width: 660px;
+  }
+
+  @media screen and (max-width: $breakpointMedium) {
+    width: 86%;
+
+  }
+
+  @media screen and (max-width:$breakpointSmall) {
+    width: 89.5%;
+  }
+}
+
+@mixin center1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+@mixin center2 {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin img {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@import 'setting/_component';

@@ -1,0 +1,549 @@
+$root:'.p-header';
+
+#{$root} {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  padding-top: 50px;
+  pointer-events: none;
+
+  @media screen and (min-width: 768px) {
+    height: 100vh !important;
+  }
+
+  &::before {
+    content: '';
+    display: none;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    pointer-events: all;
+    opacity: 0;
+    transition: .3s;
+
+    @media screen and (max-width: $breakpointMedium) {
+      display: block;
+    }
+  }
+
+  &::after {
+    content: '';
+    display: none;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 58px;
+    height: 100%;
+    width: 100%;
+    background: $color-main;
+    pointer-events: all;
+    transform-origin: calc(100% - 28px) -28px;
+    transform: translate3d(0, 0, 0) scale(0);
+    transition: .3s .15s $ease-inout;
+
+    @media screen and (max-width: $breakpointMedium) {
+      display: block;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: 60px;
+    top: 50px;
+    width: 150px;
+    height: 50px;
+    @include img;
+    transition: .3s $ease-inout;
+    transform-origin: left top;
+    pointer-events: all;
+
+    @media screen and (max-width: 850px) {
+      width: 120px;
+      height: 40px;
+      left: calc(50% - 365px);
+    }
+
+    @media screen and (max-width:$breakpointMedium) {
+      height: 28.2px;
+      width: 85px;
+      top: 16px;
+      left: 7%;
+    }
+
+    @media screen and (max-width:$breakpointSmall) {
+      left: 5.3%;
+    }
+
+  }
+
+  &__navi {
+    position: absolute;
+    right: 60px;
+    top: 60px;
+    display: flex;
+    height: 30px;
+    line-height: 28px;
+    @include text14px;
+    letter-spacing: 1.25px;
+    transition: .3s $ease-inout;
+
+    @media screen and (max-width: 850px) {
+      right: calc(50% - 365px);
+    }
+
+    @media screen and (max-width:$breakpointMedium) {
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 62px;
+    }
+
+    &__item {
+      display: inline-block;
+      position: relative;
+      margin-left: 43px;
+      padding: 0 4px;
+      cursor: pointer;
+      pointer-events: all;
+
+      @media screen and (max-width: $breakpointLarge) {
+        margin-left: 25px;
+      }
+
+      @media screen and (max-width:$breakpointMedium) {
+        display: block;
+        text-align: center;
+        margin: 11vh 0;
+        height: 30px;
+        transform-origin: calc(100% + 30px) - 30px;
+        transform: translate3d(0, 0, 0) scale(.4) skewX(-60deg);
+        opacity: 0;
+        transition: transform .4s $ease-inout, opacity .3s;
+        pointer-events: none;
+
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: -19px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 1px;
+        width: 15px;
+        background: $color-black;
+        transition: transform .25s $ease-inout;
+        transform-origin: right;
+        transform: translate3d(0, 0, 0) scaleX(0);
+      }
+
+      @media screen and (min-width:769px) {
+        &:hover::before {
+          transform: translate3d(0, 0, 0) scaleX(1);
+          transform-origin: left;
+          transition: transform .4s $ease-out;
+        }
+      }
+
+      >p {
+
+        @media screen and (max-width: $breakpointMedium) {
+          position: relative;
+          display: inline-block;
+          font-size: 23px;
+          letter-spacing: 2px;
+          padding: 0 8px;
+          line-height: 30px;
+          color: #fff;
+        }
+      }
+    }
+
+    &__sns {
+      line-height: 26px;
+      margin-left: 32px;
+      padding-top: 3px;
+      margin-right: -4px;
+      pointer-events: all;
+
+      @media screen and (max-width: $breakpointLarge) {
+        margin-left: 25px;
+      }
+
+      @media screen and (max-width:$breakpointMedium) {
+        position: absolute;
+        top: 14px;
+        right: 82px;
+        ;
+
+      }
+
+      >a {
+        position: relative;
+        display: inline-block;
+        margin-left: 14px;
+        height: 24px;
+        width: 24px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          border: solid 1px $color-gray;
+          border-radius: 2px;
+          opacity: 0;
+          transform: translate3d(0, 0, 0) scale(.5);
+          transition: .2s;
+        }
+
+        @media screen and (min-width:769px) {
+          &:hover::before {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) scale(1);
+            transition: .3s $ease-out;
+          }
+        }
+      }
+
+      svg {
+        @include center1;
+      }
+    }
+  }
+
+  &__contact {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 40px;
+    width: 268px;
+    height: 68px;
+    background: $color-main;
+    @include text16px;
+    font-weight: 700;
+    padding-right: 33px;
+    letter-spacing: 1.5px;
+    line-height: 66px;
+    text-align: center;
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+    transition: transform .4s $ease-inout, box-shadow .3s, opacity .3s .1s;
+    box-shadow: 0 15px 25px 0px rgba(196, 0, 16, 0.2);
+    transform-origin: 120% 80%;
+    cursor: pointer;
+    color: #fff;
+    pointer-events: all;
+
+    >.arrow {
+      right: 40px;
+      top: 27px;
+    }
+
+    >p {
+      transform: translateX(0px) skewX(0deg);
+      opacity: 1;
+      transition: transform .4s .15s $ease-inout, opacity .3s .25s;
+    }
+
+    @media screen and (min-width:769px) {
+      &:hover {
+        transform: translate3d(1px, 1px, 0) scale(1);
+        box-shadow: 0 5px 15px 0px rgba(196, 0, 16, 0.2);
+        transition: transform .2s, box-shadow .2s, opacity .3s .1s;
+      }
+    }
+
+    @media screen and (max-width:$breakpointMedium) {
+      display: none;
+    }
+
+    &.is-hide {
+      transform: translate3d(0, 0, 0) scale(0);
+      opacity: 0;
+      transition: transform .6s $ease-inout, box-shadow .3s, opacity .2s .2s;
+
+      >p {
+        transform: translateX(20px) skewX(-40deg);
+        opacity: 0;
+        transition: 0s .6s;
+      }
+    }
+  }
+
+  &__spContact {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 0px;
+    width: 296px;
+    height: 70px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1.4px;
+    line-height: 70px;
+    text-align: center;
+    transition: .4s $ease-inout;
+    cursor: pointer;
+    overflow: hidden;
+    transform: translate3d(0, -100%, 0);
+    transition: .2s $ease-inout;
+
+    &__inner {
+      color: $color-main;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      transform: translate3d(0, 100%, 0);
+      transition: .2s $ease-inout;
+      padding-right: 61px;
+
+      >.arrow {
+        right: 31px;
+        top: 30px;
+      }
+    }
+
+
+    @media screen and (min-width:769px) {
+      &:hover {
+        transform: translate3d(1px, 1px, 0);
+        box-shadow: 0 5px 15px 0px rgba(196, 0, 16, 0.2);
+      }
+    }
+  }
+
+  @media screen and (min-width:769px) {
+
+    &.is-min {
+      .p-header__logo {
+        transform: translate3d(0, 0, 0) translateY(-20px) scale(.666);
+        transition: .3s;
+
+        @media screen and (max-width: $breakpointLarge) {
+          transform: translate3d(0, 0, 0) translateY(-20px) scale(.75);
+        }
+      }
+
+      .p-header__navi {
+        transform: translate3d(0, 0, 0) translateY(-30px);
+        transition: .3s;
+      }
+    }
+  }
+
+  &__spBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 58px;
+    height: 58px;
+    cursor: pointer;
+    transition: .5s;
+    transform: translate3d(0, 0, 0) translateX(100%);
+
+    @media screen and (max-width: $breakpointMedium) {
+      transform: translate3d(0, 0, 0) translateX(0%);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      background: $color-main;
+      transform: translate3d(0, 0, 0) scale(0);
+      transition: .3s .05s;
+    }
+
+    &__open,
+    &__close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    &__open {
+      padding-left: 20px;
+      padding-top: 21px;
+      transform: translate3d(0, 0, 0) scale(1);
+      transition: .5s .3s $ease-inout;
+      pointer-events: all;
+
+      >span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: $color-main;
+        margin-bottom: 5px;
+        transform-origin: left;
+        transform: translate3d(0, 0, 0) scaleX(1);
+        transition-duration: .3s;
+        transition-timing-function: $ease-inout;
+
+        &:nth-child(1) {
+          transition-delay: .3s;
+        }
+
+        &:nth-child(2) {
+          transition-delay: .4s;
+        }
+
+        &:nth-child(3) {
+          transition-delay: .5s;
+          width: 9px;
+        }
+      }
+    }
+
+    &__close {
+      padding-left: 21px;
+      padding-top: 21px;
+      pointer-events: none;
+
+      >span {
+        position: absolute;
+        @include center1;
+        height: 1px;
+        width: 20px;
+
+        &:nth-child(1) {
+          transform: translate3d(0, 0, 0) rotate(45deg) scaleX(1);
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 51%;
+            background: #fff;
+            transform-origin: left;
+            transform: translate3d(0, 0, 0) scale(0);
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 51%;
+            background: #fff;
+            transform-origin: right;
+            transform: translate3d(0, 0, 0) scale(0);
+          }
+        }
+
+        &:nth-child(2) {
+          transform: translate3d(0, 0, 0) rotate(-45deg) scaleX(1);
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 51%;
+            background: #fff;
+            transform-origin: left;
+            transform: translate3d(0, 0, 0) scale(0);
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 51%;
+            background: #fff;
+            transform-origin: right;
+            transform: translate3d(0, 0, 0) scale(0);
+          }
+        }
+      }
+
+      >span::before,
+      >span::after {
+        transition: .3s $ease-inout;
+      }
+    }
+  }
+}
+
+body.is-navOpen #{$root} {
+
+  &::before {
+    opacity: 1;
+    transition: .3s .4s;
+  }
+
+  &::after {
+    transform: translate3d(0, 0, 0) scale(1);
+    transition: transform .3s .1s $ease-inout;
+  }
+
+  &__navi__item {
+    transform: translate3d(0, 0, 0) scale(1) skewX(0deg);
+    opacity: 1;
+    transition: transform .6s .2s $ease-inout, opacity .7s .3s;
+    pointer-events: all;
+  }
+
+  &__spBtn {
+    &::before {
+      // transform-origin: 90% 10%;
+      transform: translate3d(0, 0, 0) scale(1);
+      transition: transform .3s .2s;
+    }
+
+    &__open {
+      transform: translate3d(0, 0, 0) scale(0);
+      transition: .3s $ease-inout;
+      pointer-events: none;
+
+      >span {
+        transform: translate3d(0, 0, 0) scaleX(0);
+        transition: 0s .3s;
+      }
+    }
+
+    &__close {
+      pointer-events: all;
+
+      span::before,
+      span::after {
+        transform: translate3d(0, 0, 0) scaleX(1);
+        transition: .4s .4s $ease-inout;
+      }
+    }
+  }
+
+  &__spContact,
+  &__spContact__inner {
+    transform: translate3d(0, 0, 0);
+    transition: .2s .5s $ease-inout;
+    pointer-events: all;
+  }
+}

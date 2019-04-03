@@ -1,0 +1,13 @@
+<section class="p-top-member">
+  <%- include('../component/_c-sectionTitle',{data:{
+    title:'メンバー紹介',
+    desc:'MEMBER'
+    },
+  }) %>
+  <p>ProtOut Studioのメンバーをご紹介いたします。</p>
+  <div class="p-top-member__body">
+    <% MEMBERS.forEach(function(item,index){ %>
+      <%- include('../component/_c-member',{item: item}) %>
+    <% }) %>
+  </div>
+</section>

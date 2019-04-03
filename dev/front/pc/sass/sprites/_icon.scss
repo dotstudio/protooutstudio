@@ -1,0 +1,192 @@
+$icon-icon-arrow-down-b: (
+    x: 0,
+    y: 51,
+    width: 20,
+    height: 10,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: 0,
+    offset_y: -51
+);$icon-icon-arrow-down: (
+    x: 30,
+    y: 38,
+    width: 20,
+    height: 10,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: -30,
+    offset_y: -38
+);$icon-icon-arrow-left-b: (
+    x: 67,
+    y: 22,
+    width: 10,
+    height: 20,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: -67,
+    offset_y: -22
+);$icon-icon-arrow-left: (
+    x: 55,
+    y: 0,
+    width: 10,
+    height: 20,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: -55,
+    offset_y: 0
+);$icon-icon-arrow-right-b: (
+    x: 55,
+    y: 22,
+    width: 10,
+    height: 20,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: -55,
+    offset_y: -22
+);$icon-icon-arrow-right: (
+    x: 67,
+    y: 0,
+    width: 10,
+    height: 20,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: -67,
+    offset_y: 0
+);$icon-icon-arrow-up: (
+    x: 30,
+    y: 26,
+    width: 20,
+    height: 10,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: -30,
+    offset_y: -26
+);$icon-icon-blank-b: (
+    x: 19,
+    y: 63,
+    width: 17,
+    height: 11,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: -19,
+    offset_y: -63
+);$icon-icon-blank-w: (
+    x: 0,
+    y: 63,
+    width: 17,
+    height: 11,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: 0,
+    offset_y: -63
+);$icon-icon-check: (
+    x: 0,
+    y: 26,
+    width: 28,
+    height: 23,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: 0,
+    offset_y: -26
+);$icon-icon-new: (
+    x: 0,
+    y: 0,
+    width: 53,
+    height: 24,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: 0,
+    offset_y: 0
+);$icon-icon-pause: (
+    x: 22,
+    y: 51,
+    width: 8,
+    height: 8,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: -22,
+    offset_y: -51
+);$icon-icon-play: (
+    x: 32,
+    y: 51,
+    width: 6,
+    height: 8,
+    total_width: 77,
+    total_height: 74,
+    image: "../images/icon.png",
+    offset_x: -32,
+    offset_y: -51
+);
+
+@mixin sprite($variable,$scale:1) {
+    $image: map_get($variable,image);
+    $offset_x: map_get($variable,offset_x) * $scale;
+    $offset_y: map_get($variable,offset_y) * $scale;
+    $width: map_get($variable,width) * $scale;
+    $height: map_get($variable,height) * $scale;
+    $total_width: map_get($variable,total_width) * $scale;
+    $total_height: map_get($variable,total_height) * $scale;
+    background-image: url($image);
+    background-position: #{$offset_x}px #{$offset_y}px;
+    background-size: #{$total_width}px #{$total_height}px;
+    width: #{$width}px;
+    height: #{$height}px;
+}
+
+
+.icon {
+    display: inline-block;
+    background-repeat: no-repeat;
+    
+    &.icon-icon-arrow-down-b{
+        @include sprite($icon-icon-arrow-down-b, 1);
+    }
+    &.icon-icon-arrow-down{
+        @include sprite($icon-icon-arrow-down, 1);
+    }
+    &.icon-icon-arrow-left-b{
+        @include sprite($icon-icon-arrow-left-b, 1);
+    }
+    &.icon-icon-arrow-left{
+        @include sprite($icon-icon-arrow-left, 1);
+    }
+    &.icon-icon-arrow-right-b{
+        @include sprite($icon-icon-arrow-right-b, 1);
+    }
+    &.icon-icon-arrow-right{
+        @include sprite($icon-icon-arrow-right, 1);
+    }
+    &.icon-icon-arrow-up{
+        @include sprite($icon-icon-arrow-up, 1);
+    }
+    &.icon-icon-blank-b{
+        @include sprite($icon-icon-blank-b, 1);
+    }
+    &.icon-icon-blank-w{
+        @include sprite($icon-icon-blank-w, 1);
+    }
+    &.icon-icon-check{
+        @include sprite($icon-icon-check, 1);
+    }
+    &.icon-icon-new{
+        @include sprite($icon-icon-new, 1);
+    }
+    &.icon-icon-pause{
+        @include sprite($icon-icon-pause, 1);
+    }
+    &.icon-icon-play{
+        @include sprite($icon-icon-play, 1);
+    }
+}

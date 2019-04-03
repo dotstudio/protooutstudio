@@ -1,0 +1,1 @@
+<% for(var i = 0; i < text.length; i++){ %><% if(text.charAt(i) === ' '){ %><span class="is-<%- i + 1 %>">&nbsp;</span><% }else{ %><span class="is-<%- i + 1 %>"><%- text.charAt(i) %></span><% } %><% } %>

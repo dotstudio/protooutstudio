@@ -1,0 +1,395 @@
+$root:'.p-top-mv';
+
+#{$root} {
+  position: relative;
+  margin: auto;
+  height: 100vh;
+  @include sectionWidth;
+  display: flex;
+  align-items: center;
+  padding-top: 34px;
+
+  @media screen and (min-width: 768px) {
+    height: 100vh !important;
+  }
+
+  @media screen and (max-width: 1200px) {
+    padding-top: 0px;
+  }
+
+  @media screen and (max-width:500px) {
+    padding-bottom: 128px;
+  }
+
+  &__bg {
+    position: absolute;
+    width: 799px;
+    height: 548px;
+    right: -509px;
+    bottom: -58px;
+    @include img;
+    background-size: contain;
+
+    @media screen and (min-width: 1366px) {
+      transform: translateX(609px) translateY(32%);
+      @include center1;
+    }
+
+    @media screen and (max-width:500px) {
+      right: -183px;
+      width: 400px;
+      height: 274px;
+      bottom: 25px;
+    }
+
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+
+    @media screen and (max-width: $breakpointMedium) {
+      top: -15vh;
+    }
+
+    @media screen and (max-width:500px) {
+      top: 1vh;
+    }
+
+    >svg {
+      width: 100%;
+      height: auto;
+    }
+
+    >p {
+      @include text16px;
+      letter-spacing: 3.1px;
+      margin-top: 50px;
+      margin-left: -2px;
+
+      @media screen and (max-width: 500px) {
+        margin-top: 23px;
+        line-height: 25px;
+      }
+
+
+      >br {
+        display: none;
+
+        @media screen and (max-width: $breakpointLarge) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__news {
+    position: absolute;
+    z-index: 1;
+    bottom: 26px;
+    width: 100%;
+    height: 98px;
+    right: calc(50vw + 1px);
+    transform: translateX(50%);
+    min-width: 520px;
+
+    @media screen and (max-width: 600px) {
+      width: calc(100vw + 2px);
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: 0;
+      bottom: 0;
+      height: 76px;
+    }
+
+    &__inner {
+      position: relative;
+      width: 520px;
+      height: 100%;
+      // max-width: 60vw;
+      background: #fff;
+      padding: 10px 0px;
+
+      @media screen and (min-width: 1366px) {
+        min-width: 38vw;
+      }
+
+      @media screen and(max-width: 1000px)and (min-width: 769px) {
+        max-width: 60vw;
+      }
+
+      @media screen and (max-width: 600px) {
+        width: 100%;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        height: 20px;
+        width: 100%;
+        background: linear-gradient(#fff, transparent);
+
+        @media screen and (max-width: 600px) {
+          height: 10px;
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        bottom: 0;
+        height: 20px;
+        width: 100%;
+        background: linear-gradient(0deg, #fff, transparent);
+
+        @media screen and (max-width: 600px) {
+          height: 10px;
+        }
+      }
+    }
+
+    &__slider {
+      position: relative;
+      left: 0px;
+      width: calc(100% - 80px);
+      overflow: hidden;
+      height: 100%;
+
+      @media screen and (max-width: 600px) {
+        width: calc(100% - 54px);
+      }
+
+      &__item {
+        width: 100%;
+        height: 80px;
+        display: flex !important;
+        align-items: center;
+        justify-content: end;
+        padding-left: 9%;
+
+        @media screen and (max-width: 600px) {
+          height: 56px;
+          padding-left: 6.5%;
+        }
+
+        >a {
+          display: inline-block;
+          width: 100%;
+          padding: 10px 0 1px 20px;
+
+          @media screen and (max-width: 600px) {
+            padding: 11px 0 1px 0px;
+          }
+        }
+
+        &__date {
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 13px;
+          letter-spacing: 1.8px;
+        }
+
+        &__title {
+          display: inline-block;
+          position: relative;
+          @include text14px;
+          margin-top: 12px;
+          line-height: 14px;
+          letter-spacing: 1.25px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          padding-right: 21px;
+          padding-bottom: 9px;
+          max-width: 100%;
+
+          @media screen and (max-width: 600px) {
+            font-size: 13px;
+            padding-bottom: 8px;
+            letter-spacing: 1.1px;
+            padding-right: 12px;
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            height: 1px;
+            width: calc(100% - 26px);
+            background: $color-black;
+
+            @media screen and (max-width: 600px) {
+              width: calc(100% - 18px);
+            }
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            right: 8px;
+            top: 3px;
+            height: 11px;
+            width: 11px;
+            background-image: url(../images/common/news-icon.png);
+            @include img;
+
+            @media screen and (max-width: 600px) {
+              right: 0;
+              top: 2px;
+            }
+          }
+        }
+      }
+    }
+
+    &__arrow {
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 78px;
+
+      @media screen and (max-width: 600px) {
+        width: 56px;
+      }
+
+      &__up {
+        position: absolute;
+        top: 26px;
+        left: 0px;
+        right: 0;
+        margin: auto;
+        width: 13px;
+        height: 10px;
+        cursor: pointer;
+
+        @media screen and (max-width: 600px) {
+          top: 16px;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: auto;
+          height: 100%;
+          width: 1px;
+          background: $color-black;
+          transform-origin: top;
+          transform: rotate(45deg);
+
+          @media screen and (max-width: 600px) {
+            transform: rotate(40deg);
+          }
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: auto;
+          height: 100%;
+          width: 1px;
+          background: $color-black;
+          transform-origin: top;
+          transform: rotate(-45deg);
+
+          @media screen and (max-width: 600px) {
+            transform: rotate(-40deg);
+          }
+        }
+      }
+
+      &__down {
+        position: absolute;
+        bottom: 26px;
+        left: 0px;
+        right: 0;
+        margin: auto;
+        width: 13px;
+        height: 10px;
+        cursor: pointer;
+
+        @media screen and (max-width: 600px) {
+          bottom: 15px;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: auto;
+          height: 100%;
+          width: 1px;
+          background: $color-black;
+          transform-origin: bottom;
+          transform: rotate(45deg);
+
+          @media screen and (max-width: 600px) {
+            transform: rotate(40deg);
+          }
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          margin: auto;
+          height: 100%;
+          width: 1px;
+          background: $color-black;
+          transform-origin: bottom;
+          transform: rotate(-45deg);
+
+          @media screen and (max-width: 600px) {
+            transform: rotate(-40deg);
+          }
+        }
+      }
+
+      &__up,
+      &__down {
+        transition: .3s;
+
+        @media screen and (min-width: 769px) {
+          &:hover {
+            opacity: .5;
+          }
+        }
+      }
+    }
+  }
+
+  &__backItem1 {
+    top: 20vw;
+    bottom: 0;
+    left: -19vw;
+  }
+
+  &__backItem2 {
+    top: 3vw;
+    bottom: 0;
+    left: calc(35vw - 200px);
+
+    @media screen and (max-width: $breakpointMedium) {
+      left: calc(35vw);
+      top: -25vw;
+    }
+  }
+}
+
+
+body.is-loading #{$root} {}

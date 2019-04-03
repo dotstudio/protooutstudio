@@ -1,0 +1,100 @@
+/* color */
+$font-family-sans-serif: 'Noto Sans JP',
+"ヒラギノ角ゴ ProN W3",
+"Hiragino Kaku Gothic ProN",
+"メイリオ",
+Meiryo,
+sans-serif;
+$font-family-en: 'Novecento',
+'Noto Sans JP',
+sans-serif;
+$font-family-mix: "Noto Sans JP",
+YuGothic,
+"ヒラギノ角ゴ ProN W3",
+"Hiragino Kaku Gothic ProN",
+"メイリオ",
+Meiryo,
+sans-serif;
+
+@mixin text10px {
+  font-family: $font-family-sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+@mixin text11px {
+  font-family: $font-family-sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+@mixin text12px {
+  font-family: $font-family-sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+@mixin text14px {
+  font-family: $font-family-sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+
+  @media screen and (max-width: $breakpointMedium) {
+    font-size: 13px;
+  }
+
+}
+
+@mixin text16px {
+  font-family: $font-family-sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+
+  @media screen and (max-width: $breakpointMedium) {
+    font-size: 13px;
+    letter-spacing: 2.5px;
+  }
+}
+
+@mixin text17px {
+  font-family: $font-family-sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+@mixin text18px {
+  font-family: $font-family-sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+@mixin text20px {
+  font-family: $font-family-sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+@mixin textTitle {
+  font-family: $font-family-sans-serif;
+  font-size: 40px;
+  letter-spacing: 3.7px;
+  font-weight: 500;
+
+  @media screen and (max-width: $breakpointMedium) {
+    font-size: 30px;
+    letter-spacing: 2.5px;
+  }
+}
+
+@mixin textDesc {
+  font-family: $font-family-en;
+  font-size: 20.5px;
+  letter-spacing: 2px;
+  line-height: 23px;
+  font-weight: 500;
+}

@@ -1,0 +1,148 @@
+$root: '.cursor';
+
+@keyframes CIRCLE_HOVER {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes STROKE {
+  0% {
+    stroke-dashoffset: 376.382;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes STROKE_END {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -376.382;
+  }
+}
+
+#{$root} {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 123px;
+  height: 123px;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 1;
+  transition: opacity .5s;
+
+  &.is-hide {
+    opacity: 0;
+  }
+
+  &.is-hover {
+    #{$root} {
+      &__inner {
+        animation: 1s CIRCLE_HOVER ease infinite;
+      }
+    }
+  }
+
+  &__inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -31px;
+    margin-left: -31px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    transform-origin: center center;
+    transform: scale(0);
+    // transition: transform .75s $ease-inout;
+    opacity: 0.25;
+  }
+
+  &__circle {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    margin-top: -5px;
+    margin-left: -5px;
+    border-radius: 50%;
+    background-color: #898989;
+    opacity: 0.8;
+  }
+
+  @media screen and (max-width: $breakpointMedium) {
+    display: none !important;
+  }
+}
+
+
+
+.cursor-outer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 123px;
+  height: 123px;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 1;
+
+  @media screen and (max-width: $breakpointMedium) {
+    opacity: 0 !important;
+  }
+
+  &.is-hide {
+    opacity: 0;
+  }
+
+  &.is-hover {
+    svg .stroke {
+      transform: scale(0.25);
+    }
+  }
+
+  &.is-loading {
+    svg .line {
+      animation: STROKE 1.5s ease forwards;
+    }
+  }
+
+  svg {
+    overflow: visible;
+    width: 123px;
+    height: 123px;
+
+    .stroke {
+      transform: scale(1);
+      transform-origin: center center;
+      transition: transform .5s $ease-inout;
+    }
+
+    .line {
+      stroke-dasharray: 376.382, 376.382;
+      stroke-dashoffset: 376.382;
+      animation: STROKE_END 1s ease forwards;
+    }
+  }
+}
+
+//body.is-first-end{
+//  #{$root},.cursor-outer{
+//    opacity: 1;
+//  }
+//}

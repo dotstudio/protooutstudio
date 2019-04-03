@@ -1,0 +1,61 @@
+$root: '.js-show-text';
+
+@keyframes TEXT {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes TEXT_INNER {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+#{$root} {
+  overflow: hidden;
+  display: inline-block;
+  &__inner {
+    display: inline-block;
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+.is-active {
+  #{$root} {
+    &--slow {
+      animation: TEXT 4s $ease-cubic-out 1s;
+      &__inner {
+        animation: TEXT_INNER 4s $ease-cubic-out 1s;
+        transition: opacity 4s linear 1s;
+        opacity: 1;
+      }
+    }
+    animation: TEXT 1.6s $ease-cubic-out 1s;
+    &__inner {
+      animation: TEXT_INNER 1.6s $ease-cubic-out 1s;
+      transition: opacity 1.6s linear 1s;
+      opacity: 1;
+    }
+  }
+}
+
+.is-show {
+  #{$root} {
+    &--slow {
+      &__inner {
+        opacity: 1;
+      }
+    }
+    &__inner {
+      opacity: 1;
+    }
+  }
+}

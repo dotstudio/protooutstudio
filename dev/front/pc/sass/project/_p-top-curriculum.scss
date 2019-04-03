@@ -1,0 +1,399 @@
+$root:'.p-top-curriculum';
+
+#{$root} {
+  position: relative;
+  @include sectionWidth;
+  margin: 286px auto 0;
+
+  @media screen and (max-width: $breakpointLarge) {
+    margin: 236px auto 0;
+  }
+
+  @media screen and (max-width:$breakpointMedium) {
+    margin: 176px auto 0;
+  }
+
+  @media screen and (max-width:$breakpointSmall) {
+    margin: 113px auto 0;
+  }
+
+  >p {
+    @include text16px;
+    font-weight: 400;
+    margin-top: -3px;
+    margin-left: -1px;
+    letter-spacing: 2.7px;
+    line-height: 35px;
+
+    @media screen and (max-width: $breakpointMedium) {
+      margin-top: 32px;
+      line-height: 25px;
+      letter-spacing: 2.2px;
+    }
+  }
+
+  &__btn {
+    display: none;
+    position: relative;
+    margin-top: 26px;
+    font-size: 14px;
+    line-height: 24px;
+    height: 24px;
+    margin-left: -1px;
+    width: 120px;
+    cursor: pointer;
+
+    @media screen and (max-width: $breakpointMedium) {
+      display: block;
+    }
+
+    >span:nth-child(1) {
+      position: absolute;
+      right: 7px;
+      top: 7px;
+      height: 11px;
+      width: 15px;
+      transform: translateX(10px);
+      opacity: 0;
+      transition: .4s $ease-inout;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: right;
+        top: 5px;
+        height: 1px;
+        width: 100%;
+        background: $color-black;
+        transform: translate3d(0, 0, 0);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 2px;
+        height: 7px;
+        width: 7px;
+        border-right: solid 1px $color-black;
+        border-top: solid 1px $color-black;
+        transform: translate3d(0, 0, 0) rotate(45deg);
+      }
+    }
+
+    >span:nth-child(2) {
+      position: absolute;
+      left: 7px;
+      top: 7px;
+      height: 11px;
+      width: 15px;
+      transform: translateX(-10px);
+      opacity: 0;
+      transition: .4s $ease-inout;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: right;
+        top: 5px;
+        height: 1px;
+        width: 100%;
+        background: $color-black;
+        transform: translate3d(0, 0, 0);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 2px;
+        height: 7px;
+        width: 7px;
+        border-left: solid 1px $color-black;
+        border-top: solid 1px $color-black;
+        transform: translate3d(0, 0, 0) rotate(-45deg);
+      }
+    }
+
+    >p {
+      transform: translateX(0px);
+      transition: .4s $ease-inout;
+    }
+
+    &.is-right {
+      >span:nth-child(1) {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    &.is-left {
+      >span:nth-child(2) {
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      >p {
+        transform: translateX(30px)
+      }
+    }
+  }
+
+  &__body {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (min-width: 971px) {
+      transform: translateX(0) !important;
+    }
+
+    @media screen and (max-width: 970px) {
+      position: relative;
+      left: 50%;
+      width: 708px;
+    }
+
+    @media screen and (max-width: 970px) and (min-width:751px) {
+      transform: translateX(-50%) !important;
+    }
+
+    @media screen and (max-width:$breakpointMedium) {
+      margin-top: 13px;
+      width: 92.2vw;
+    }
+
+    @media screen and (max-width:750px) {
+      left: -3.5%;
+      width: 130%;
+      min-width: 651px;
+      transform: translateX(0);
+    }
+
+    &__phase {
+      position: relative;
+      width: 100%;
+
+      &__top {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        top: calc(29px + 10%);
+        margin: auto;
+        width: 94%;
+        height: 30px;
+        background: $color-black;
+        border-radius: 15px;
+        text-align: center;
+        line-height: 28px;
+        color: #fff;
+        @include text16px;
+
+        @media screen and (max-width: $breakpointMedium) {
+          top: calc(22px + 10%);
+          font-size: 10px;
+          letter-spacing: 0;
+          height: 20px;
+          border-radius: 10px;
+          line-height: 19px;
+        }
+
+      }
+
+      &__inner {
+        display: inline-block;
+        display: flex;
+        justify-content: space-between;
+
+        >span {
+          display: block;
+          width: 33px;
+          min-width: 33px;
+
+          @media screen and (max-width: $breakpointMedium) {
+            width: 22px;
+            min-width: 22px;
+          }
+        }
+
+        >div {
+          width: 100%;
+          height: auto;
+          position: relative;
+
+          >img {
+            position: relative;
+            left: 55%;
+            display: inline-block;
+            transform: translateX(-50%);
+            width: 113%;
+            max-width: 170px;
+            margin: auto;
+          }
+
+          >.viewItem1 {
+            position: absolute;
+            left: calc(100% + 9px);
+            top: 0;
+            bottom: 8%;
+            margin: auto;
+            border-radius: 8px;
+            border: solid 1px $color-main;
+            background: #fff;
+            width: 16px;
+            height: calc(70% - 35px);
+
+            @media screen and (max-width: $breakpointMedium) {
+              width: 11px;
+              left: calc(100% + 6px);
+            }
+          }
+
+          >.viewItem2 {
+            position: absolute;
+            left: calc(100% + 9px);
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 8px;
+            border: solid 1px $color-main;
+            background: #fff;
+            width: 16px;
+            height: calc(80% - 35px);
+
+            @media screen and (max-width: $breakpointMedium) {
+              width: 11px;
+              left: calc(100% + 6px);
+            }
+          }
+        }
+      }
+
+    }
+
+    >span {
+      width: 33px;
+      min-width: 33px;
+
+      @media screen and (max-width: $breakpointMedium) {
+        width: 22px;
+        min-width: 22px;
+      }
+    }
+  }
+
+  .subItem1 {
+    position: absolute;
+    left: 0;
+    top: calc(87.8% + 20px);
+    display: flex;
+    @include text14px;
+    line-height: 14px;
+    white-space: nowrap;
+
+    @media screen and (max-width: $breakpointLarge) {
+      font-size: 12px;
+    }
+
+    @media screen and (max-width:$breakpointMedium) {
+      font-size: 11px;
+      letter-spacing: .7px;
+      line-height: 17px;
+    }
+
+    @media screen and (max-width:$breakpointSmall) {
+      font-size: 11px;
+
+    }
+
+    >span {
+      display: block;
+      width: calc(21px + 2vw);
+      height: 16px;
+      border-radius: 10px;
+      background: #fff;
+      border: solid 1px $color-main;
+      margin-right: .7vw;
+    }
+  }
+
+  .subItem2 {
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 103.7%;
+    @include text14px;
+    line-height: 24px;
+    white-space: nowrap;
+
+
+    >span {
+      display: block;
+      width: 100%;
+      height: 4px;
+      border: solid 1px $color-black;
+      border-top: none;
+      margin-bottom: 13px;
+    }
+
+    >p {
+      position: absolute;
+      left: 0;
+      top: calc(100% - 3px);
+
+      @media screen and (max-width: $breakpointLarge) {
+        font-size: 12px;
+      }
+
+      @media screen and (max-width:$breakpointMedium) {
+        font-size: 11px;
+        letter-spacing: .7px;
+        line-height: 17px;
+      }
+
+      @media screen and (max-width:$breakpointSmall) {
+        font-size: 11px;
+
+      }
+    }
+  }
+
+  .subItem3 {
+    position: absolute;
+    left: 0;
+    top: 103.7%;
+    @include text14px;
+    line-height: 24px;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    >span {
+      display: block;
+      width: 100%;
+      height: 4px;
+      border: solid 1px $color-black;
+      border-top: none;
+      margin-bottom: 13px;
+    }
+
+    >p {
+      @media screen and (max-width: $breakpointLarge) {
+        font-size: 12px;
+      }
+
+      @media screen and (max-width:$breakpointMedium) {
+        font-size: 11px;
+        letter-spacing: .7px;
+        line-height: 17px;
+      }
+
+      @media screen and (max-width:$breakpointSmall) {
+        font-size: 11px;
+
+      }
+    }
+  }
+}
