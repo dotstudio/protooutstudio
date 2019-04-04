@@ -26,9 +26,9 @@
     "test": "frp task test",
     "build": "frp build",
     "serve": "frp serve",
-    "production": "frp build -p && cd ../../ && rm -rf docs/wp-content && rm -f docs/index.html && cp -rf dev/front/public/pc/* docs/",
     "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -w -s -r 0",
-    "deploy": "npm run production && cd ../../ && git add . && git commit -m 'delpy' && git push origin master"
+    "production": "frp build -p && cd ../../ && rm -rf docs/wp-content && rm -f docs/index.html && cp -rf dev/front/public/pc/* docs/",
+    "deploy": "npm run production && cd ../../ && git add . && git commit -m 'deploy' && git push origin master"
   },
   "repository": {
     "type": "git",
