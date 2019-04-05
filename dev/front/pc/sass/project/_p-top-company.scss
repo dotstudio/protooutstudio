@@ -27,6 +27,7 @@ $root:'.p-top-company';
     margin-top: 40px;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
     @media screen and (max-width: $breakpointMedium) {
@@ -36,6 +37,7 @@ $root:'.p-top-company';
     &__item {
       width: 22%;
       transform-origin: 80% 80%;
+      margin-bottom: 26px;
 
       @media screen and (max-width: $breakpointMedium) {
 
