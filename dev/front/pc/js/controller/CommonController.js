@@ -68,30 +68,31 @@ class CommonController {
     this.scrollControll = (e) => this._scrollControll(e)
     // this.scrollDown = (scroll) => this._scrollDown(scroll)
     // this.onMousemove = (e) => this._onMousemove(e);
+    TweenMax.set(window, {
+      scrollTo: {
+        y: 0,
+      },
+    });
     this.scrollCanceler = new ScrollCanceler();
-    // $('html,body').animate({
-    //   scrollTop: 0
-    // });
-    // this.offScroll();
+    this.scrollCanceler.cancel();
     this.eventHandler();
-
     let loaded = this._onLoad();
     let opening = this.opening();
-
     Promise.all([loaded, opening]).then(() => {
-      console.log("load");
+      this.$body.removeClass('is-loading');
+      this.$body.addClass('is-loading-end');
+      TweenLite.to($('#logo-svg >path'), .4, {
+        scale: .5,
+        opacity: 0,
+        delay: .2,
+        ease: Power4.easeInOut,
+      });
       setTimeout(() => {
-        this.$body.removeClass('is-loading');
-        this.$body.addClass('is-loading-end');
-        TweenLite.to($('#logo-svg >path'), .4, {
-          scale: .5,
-          opacity: 0,
-          ease: Power4.easeInOut,
-        });
         window.__GLOBAL.isFirst = false;
+        this.$body.addClass('view-contents');
+        this.scrollCanceler.arrow();
       }, 1000);
     });
-
   }
   eventHandler() {
     this.$body.on('click.link', 'a', this.onClickLink);
@@ -158,14 +159,13 @@ class CommonController {
 
       const tl = new TimelineMax();
       tl.eventCallback("onComplete", () => {
-        console.log("complete");
         resolve()
       })
-      let duration1 = .56;
+      let duration1 = .5;
       let duration2 = .4;
-      let nextTime1 = '-=' + (duration1 - 0.1) + '';
+      let nextTime1 = '-=' + (duration1 - 0.07) + '';
       let nextTime2 = '-=' + duration1 + '';
-      let nextTime3 = '-=' + (duration2 - 0.1) + '';
+      let nextTime3 = '-=' + (duration2 - 0.07) + '';
       let nextTime4 = '-=' + duration2 + '';
       let easing1 = Power4.easeInOut;
 
@@ -346,6 +346,9 @@ class CommonController {
     this.isResize = false;
     this.windowHeight = this.$window.outerHeight();
     this.windowWidth = this.$window.innerWidth();
+    if (window.__GLOBAL.UA.browser.name !== 'IE') {
+      lax.updateElements()
+    }
     // setTimeout(() => {
     // lax.populateElements()
     // }, 200);

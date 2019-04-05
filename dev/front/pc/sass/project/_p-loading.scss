@@ -16,6 +16,7 @@ $root:'.p-loading';
     height: 100%;
     width: 50.5%;
     background: #fff;
+    transform-origin: top;
   }
 
   &::after {
@@ -26,6 +27,7 @@ $root:'.p-loading';
     height: 100%;
     width: 50.5%;
     background: #fff;
+    transform-origin: bottom;
   }
 
   &__inner {
@@ -83,15 +85,21 @@ body.is-loading #{$root} {
 }
 
 body.is-loading-end #{$root} {
+  pointer-events: none;
 
-  // opacity: 0;
-  // pointer-events: none;
-  // opacity: 1;
+  &::before,
+  &::after {
+    transform: scaleY(0);
+    transition: .6s .7s;
+  }
+
+
   &__inner {
-    opacity: 1;
+    opacity: 0;
+    transition: 0s .8s cubic-bezier(.79, .17, .15, .96);
 
     svg path {
-      transform-origin: 0% 0% !important;
+      transform-origin: -5% 10% !important;
     }
   }
 }

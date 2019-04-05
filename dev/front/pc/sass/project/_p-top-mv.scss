@@ -8,6 +8,7 @@ $root:'.p-top-mv';
   display: flex;
   align-items: center;
   padding-top: 34px;
+  opacity: 0;
 
   @media screen and (min-width: 769px) {
     height: 100vh !important;
@@ -392,7 +393,10 @@ $root:'.p-top-mv';
 }
 
 
-body.is-loading-end #{$root} {
+body.view-contents #{$root} {
+  opacity: 1;
+  transition: .4s;
+
   &__backItem1 {
     transform: scale(4);
     opacity: 0;

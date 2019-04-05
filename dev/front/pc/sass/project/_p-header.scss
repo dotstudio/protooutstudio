@@ -8,6 +8,7 @@ $root:'.p-header';
   height: 100vh;
   padding-top: 50px;
   pointer-events: none;
+  opacity: 0;
 
   @media screen and (min-width: 768px) {
     height: 100vh !important;
@@ -565,4 +566,9 @@ body.is-navOpen #{$root} {
     transition: .2s .5s $ease-inout;
     pointer-events: all;
   }
+}
+
+body.view-contents #{$root} {
+  opacity: 1;
+  transition: .4s;
 }
