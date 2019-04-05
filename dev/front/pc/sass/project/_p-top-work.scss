@@ -142,8 +142,7 @@ $root:'.p-top-work';
 
         &__img {
           width: 100%;
-          padding-top: 100%;
-          @include img;
+          height: auto;
 
           @media screen and (max-width: $breakpointMedium) {
             position: absolute;

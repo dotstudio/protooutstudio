@@ -36,6 +36,7 @@ class CommonController {
     this.memberTop = this.$memberArea.offset().top - 50;
     this.footerTop = this.$footer.offset().top - 50;
 
+    this.$loadFlag = $('#load-flag')
     //modules
     this.ScrollCanceler = new ScrollCanceler();
     //flags
@@ -74,16 +75,21 @@ class CommonController {
     // this.offScroll();
     this.eventHandler();
 
-    let opening = this.opening();
     let loaded = this._onLoad();
+    let opening = this.opening();
 
     Promise.all([loaded, opening]).then(() => {
+      console.log("load");
       setTimeout(() => {
-        // this.releaseScroll();
         this.$body.removeClass('is-loading');
         this.$body.addClass('is-loading-end');
+        TweenLite.to($('#logo-svg >path'), .4, {
+          scale: .5,
+          opacity: 0,
+          ease: Power4.easeInOut,
+        });
         window.__GLOBAL.isFirst = false;
-      }, 3000);
+      }, 1000);
     });
 
   }
@@ -122,11 +128,111 @@ class CommonController {
       this.footerTop = this.$footer.offset().top - this.windowHeight;
       this.scrollDown(this.footerTop);
     });
-
   }
   opening() {
     return new Promise((resolve) => {
-      resolve();
+      TweenLite.set('.svg-logo0', {
+        x: 10,
+        skewX: -50,
+        scale: 0,
+      });
+      TweenLite.set(['.logo-top-leftEye', '.logo-top-rightEye'], {
+        y: 10,
+        scale: 0,
+      });
+      TweenLite.set('.logo-top-mouth', {
+        x: -9,
+        y: 9,
+        scale: 0,
+        scaleX: 0,
+      });
+      TweenLite.set('.svg-logo1', {
+        y: -20,
+        x: 9,
+        rotation: 20,
+        opacity: 0,
+        scale: .4,
+      });
+
+      this.$body.addClass('is-loading');
+
+      const tl = new TimelineMax();
+      tl.eventCallback("onComplete", () => {
+        console.log("complete");
+        resolve()
+      })
+      let duration1 = .56;
+      let duration2 = .4;
+      let nextTime1 = '-=' + (duration1 - 0.1) + '';
+      let nextTime2 = '-=' + duration1 + '';
+      let nextTime3 = '-=' + (duration2 - 0.1) + '';
+      let nextTime4 = '-=' + duration2 + '';
+      let easing1 = Power4.easeInOut;
+
+
+      tl.to('.logo-top-P', duration1, {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        skewX: 0,
+        ease: easing1
+      }, '0.5').to('.logo-top-R', duration1, {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        skewX: 0,
+        ease: easing1
+      }, nextTime1).to('.logo-top-O', duration1, {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        skewX: 0,
+        ease: easing1
+      }, nextTime1).to('.logo-top-U', duration1, {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        skewX: 0,
+        ease: easing1
+      }, nextTime1).to('.logo-top-leftEye', duration2, {
+        scale: 1,
+        y: 0,
+        ease: easing1
+      }, nextTime4).to('.logo-top-T', duration1, {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        skewX: 0,
+        ease: easing1
+      }, nextTime1).to('.logo-top-rightEye', duration2, {
+        scale: 1,
+        y: 0,
+        ease: easing1
+      }, nextTime4).to('.logo-top-mouth', .4, {
+        scale: 1,
+        scaleX: 1,
+        x: 0,
+        y: 0,
+        ease: easing1
+      }, nextTime1).to(['.logo-bottom-S', '.logo-bottom-T', '.logo-bottom-U', '.logo-bottom-D', '.logo-bottom-I', '.logo-bottom-O'], .4, {
+        y: 0,
+        opacity: 1,
+        rotation: 0,
+        x: 0,
+        scale: 1,
+        ease: easing1,
+      }, '-=.1');
+    });
+  }
+  _onLoad() {
+    return new Promise((resolve) => {
+      let $img = $('#load-flag');
+      let originSrc = $img.attr('src');
+      $img.attr('src', '');
+      $img.on('load', () => {
+        resolve();
+      });
+      $img.attr('src', originSrc);
     });
   }
   _onMousemove(e) {
@@ -308,13 +414,6 @@ class CommonController {
     }
     this.isFetch = true;
     page.replace(path, e.state);
-  }
-  _onLoad() {
-    return new Promise((resolve) => {
-      this.$window.on('load', () => {
-        resolve();
-      });
-    });
   }
   onExit() {
     return new Promise((resolve) => {

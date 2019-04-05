@@ -58,12 +58,6 @@ class IndexController {
 
       this.mvFlg = false;
 
-      window.addEventListener('load', (event) => {
-        setTimeout(() => {
-          this.$body.addClass('is-loading-end');
-        }, 300);
-      });
-
       this.newsSlick();
       this.onResize();
       this.onResizeEnd();

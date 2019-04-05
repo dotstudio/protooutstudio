@@ -1,3 +1,97 @@
 $root:'.p-loading';
 
-#{$root} {}
+#{$root} {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50.5%;
+    background: #fff;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50.5%;
+    background: #fff;
+  }
+
+  &__inner {
+
+    @include center1;
+    z-index: 1;
+    width: 288px;
+    height: 76px;
+    opacity: 0;
+
+    .logo-top-P,
+    .logo-top-R,
+    .logo-top-O,
+    .logo-top-U,
+    .logo-top-T {
+      transform-origin: 10% 1%;
+      // opacity: 0;
+    }
+
+    .logo-top-rightEye,
+    .logo-top-leftEye {
+      transform-origin: 2% 15%;
+    }
+
+    .logo-top-mouth {
+      transform-origin: 0% 5%;
+    }
+
+    .logo-bottom-S,
+    .logo-bottom-T,
+    .logo-bottom-U,
+    .logo-bottom-D,
+    .logo-bottom-I,
+    .logo-bottom-O {
+      // transform-origin: 40% 54%;
+      // transform: skewX(-60deg)
+    }
+
+    path {}
+
+  }
+
+  svg {
+    transform-origin: center 140%;
+    transition: .4s $ease-inout;
+  }
+}
+
+body.is-loading #{$root} {
+
+
+  &__inner {
+    opacity: 1;
+  }
+}
+
+body.is-loading-end #{$root} {
+
+  // opacity: 0;
+  // pointer-events: none;
+  // opacity: 1;
+  &__inner {
+    opacity: 1;
+
+    svg path {
+      transform-origin: 0% 0% !important;
+    }
+  }
+}
