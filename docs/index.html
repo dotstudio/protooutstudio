@@ -664,41 +664,32 @@
 </main>
 <script src="/wp-content/themes/protoout/assets/js/vender.js"></script>
 <script src="/wp-content/themes/protoout/assets/js/app.js"></script>
-<!-- Load Facebook SDK for JavaScript -->
 
+<!-- Load Facebook SDK for JavaScript -->
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
-    FB.init({xfbml: true, version: 'v3.2'});
-
-    // FB.Event.subscribe('customerchat.load', function(){
-    //     setTimeout(() => {
-    //         const fbmesicon = document.querySelector('.fb_dialog');
-    //         const fbchat = document.querySelector('.fb_customer_chat_bounce_in_v2');
-    //         // console.log(fbmes);
-    //         fbmesicon.style.bottom = '66pt';
-    //         fbchat.style.bottom = '110pt';             
-    //     }, 1000 * 3);
-
-    // });
+    FB.init({
+      xfbml            : true,
+      version          : 'v3.2'
+    });
   };
 
   (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/ja_JP/sdk/xfbml.customerchat.js';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Your customer chat code -->
 <div class="fb-customerchat"
   attribution=setup_tool
   page_id="623582861398719"
-  theme_color="#fa3c4c"
-  logged_in_greeting="こんにちは！"
-  logged_out_greeting="こんにちは！">
+  theme_color="#B81C22"
+  logged_in_greeting="こんにちは！気になることがあれば気軽にメッセージ下さい！"
+  logged_out_greeting="こんにちは！気になることがあれば気軽にメッセージ下さい！">
 </div>
 
 </body>
