@@ -83,11 +83,35 @@ meta.keywords = META[page].keywords || '';
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-78080011-4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
     function gtag() {
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
     gtag('config', 'UA-78080011-4');
-
   </script>
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v3.2'
+    });
+  };
+
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/ja_JP/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="623582861398719"
+  theme_color="#B81C22"
+  logged_in_greeting="こんにちは！気になることがあれば気軽にメッセージ下さい！"
+  logged_out_greeting="こんにちは！気になることがあれば気軽にメッセージ下さい！">
+</div>
