@@ -92,6 +92,13 @@
       version          : 'v3.2'
     });
 
+    // FB.XFBML.parse();
+    // FB.CustomerChat.show();
+    // FB.CustomerChat.showDialog();
+    FB.Event.subscribe('customerchat.show', () => {
+      FB.CustomerChat.showDialog();
+    });
+
     FB.Event.subscribe('customerchat.dialogShow', fbPartsMove);
     setTimeout(fbPartsMove,1000 * 4);
   };
