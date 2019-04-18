@@ -97,8 +97,12 @@ meta.keywords = META[page].keywords || '';
       xfbml            : true,
       version          : 'v3.2'
     });
-  };
 
+    FB.Event.subscribe('customerchat.dialogShow', function(){
+      FB.CustomerChat.hideDialog();
+    });
+  };
+  
   (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
