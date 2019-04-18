@@ -79,15 +79,21 @@
 <!-- Load Facebook SDK for JavaScript -->
 <div id="fb-root"></div>
 <script>
+  function fbPartsMove(){
+    const fbmesIcon = document.querySelector('.fb_dialog');
+    fbmesIcon.style.bottom = '66pt';
+    const fbmesChat = document.querySelector('.fb_customer_chat_bounce_in_v2');
+    fbmesChat.style.bottom = '110pt';
+  }
+
   window.fbAsyncInit = function() {
     FB.init({
       xfbml            : true,
       version          : 'v3.2'
     });
 
-    FB.Event.subscribe('customerchat.dialogShow', function(){
-      FB.CustomerChat.hideDialog();
-    });
+    FB.Event.subscribe('customerchat.dialogShow', fbPartsMove);
+    setTimeout(fbPartsMove,1000 * 4);
   };
   
   (function(d, s, id) {
